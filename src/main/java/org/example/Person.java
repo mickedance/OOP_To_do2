@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Person {
     private static int idCount;
     private int id;
@@ -74,6 +76,19 @@ public class Person {
     public void setAppUser(AppUser appUser) {
         if(appUser == null) throw new IllegalArgumentException("appUser cannot be null");
         this.appUser = appUser;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return firstName.equals(person.firstName) && lastName.equals(person.lastName) && email.equals(person.email) && appUser.equals(person.appUser);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, email, appUser);
     }
 }
 

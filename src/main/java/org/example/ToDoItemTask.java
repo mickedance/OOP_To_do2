@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class ToDoItemTask {
     public static int idCount;
@@ -69,5 +70,20 @@ public class ToDoItemTask {
                 ", assigned=" + assigned +
                 ", todoItem=" + Arrays.toString(todoItem) +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ToDoItemTask that = (ToDoItemTask) o;
+        return Arrays.equals(todoItem, that.todoItem) && assignee.equals(that.assignee);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(assignee);
+        result = 31 * result + Arrays.hashCode(todoItem);
+        return result;
     }
 }

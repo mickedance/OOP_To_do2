@@ -2,6 +2,7 @@ package org.example;
 
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class ToDoItem {
     private static int idCount;
@@ -102,20 +103,19 @@ public class ToDoItem {
         }
         this.creator = creator;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ToDoItem toDoItem = (ToDoItem) o;
+        return done == toDoItem.done && title.equals(toDoItem.title) && description.equals(toDoItem.description) && deadline.equals(toDoItem.deadline) && creator.equals(toDoItem.creator);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, description, deadline, done, creator);
+    }
 }
 
 
-/*
-* id (private) is an int representing
-each TodoItem object.
-• title representing a title like
-‘Change tires.’ Not allowed to be
-null or empty
-• description is used to hold further
-information
-• deadLine TodoItem is overdue if
-current date > deadline. Not
-allowed to be null
-• done represent if task is finished
-• creator represent who created this
-task.*/
