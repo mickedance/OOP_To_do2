@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class ToDoItemTask {
     public static int idCount;
     private int id;
@@ -58,5 +60,14 @@ public class ToDoItemTask {
             this.assignee = assignee;
 
         }
+    }
+
+    @Override
+    public String toString() {
+        return "ToDoItemTask{" +
+                "id=" + id +
+                ", assigned=" + assigned +
+                ", todoItem=" + Arrays.toString(todoItem) +
+                '}';
     }
 }

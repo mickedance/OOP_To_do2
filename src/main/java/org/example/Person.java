@@ -6,6 +6,7 @@ public class Person {
     private String firstName;
     private String lastName;
     private String email;
+    private AppUser appUser;
 
     /**
      * Constructor. Values has to be Non-null values, otherwise constructor throws an Exception
@@ -23,11 +24,13 @@ public class Person {
         this.id = idCount++;
     }
 
-    /**
-     * @return a string with summary of instance
-     */
-    public String getSummary() {
-        return "Id: " + id + " Name: " + firstName + " " + lastName + " Email: " + email;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", appUser=" + appUser +
+                '}';
     }
 
     public String getFirstName() {
@@ -62,6 +65,15 @@ public class Person {
             throw new IllegalArgumentException("Email cannot be null");
         }
         this.email = email;
+    }
+
+    public AppUser getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(AppUser appUser) {
+        if(appUser == null) throw new IllegalArgumentException("appUser cannot be null");
+        this.appUser = appUser;
     }
 }
 

@@ -42,11 +42,15 @@ public class ToDoItem {
         return false;
     }
 
-    /**
-     * @return String of this instance information as a message
-     */
-    public String getSummary() {
-        return "Title: " + title + " description: " + description + " deadline: " + deadline + " is completed: " + done + " by: " + creator.getFirstName() + "" + creator.getLastName();
+    @Override
+    public String toString() {
+        return "ToDoItem{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", deadline=" + deadline +
+                ", done=" + done +
+                '}';
     }
 
     public String getTitle() {

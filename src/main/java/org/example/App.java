@@ -14,7 +14,7 @@ public class App {
             System.out.println(e.getMessage());
             return;
         }
-        System.out.println(person1.getSummary());
-        System.out.println(person2.getSummary());
+        System.out.println(person1);
+        System.out.println(person2);
     }
 }
