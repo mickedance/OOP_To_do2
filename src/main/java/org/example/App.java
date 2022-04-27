@@ -1,6 +1,8 @@
 package org.example;
 
 
+import org.example.Models.Person;
+
 public class App {
 
     private static Person person1;

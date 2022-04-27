@@ -1,9 +1,11 @@
-package org.example;
+package org.example.Models;
+
+import org.example.AppRole;
 
 import java.util.Objects;
 
 public class AppUser {
-
+    private String id;
     private String username;
     private String password;
     private AppRole role;
@@ -13,6 +15,11 @@ public class AppUser {
         setPassword(password);
         setRole(role);
     }
+
+    public String getId() {
+        return id;
+    }
+
 
     public String getUsername() {
         return username;

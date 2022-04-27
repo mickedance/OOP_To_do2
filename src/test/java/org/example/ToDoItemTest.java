@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Models.Person;
+import org.example.Models.ToDoItem;
 import org.junit.Assert;
 import org.junit.Test;
 

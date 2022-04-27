@@ -1,6 +1,9 @@
 package org.example;
 
 
+import org.example.Models.Person;
+import org.example.Models.ToDoItem;
+import org.example.Models.ToDoItemTask;
 import org.junit.Assert;
 
 import static org.junit.Assert.assertNotNull;

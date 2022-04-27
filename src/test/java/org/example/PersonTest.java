@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Models.Person;
 import org.junit.Assert;
 import org.junit.Test;
 

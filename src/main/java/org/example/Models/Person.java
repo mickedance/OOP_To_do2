@@ -1,11 +1,12 @@
-package org.example;
+package org.example.Models;
 
 import java.util.Objects;
 
 public class Person {
     private static int idCount;
-    private int id;
+    private Integer id;
     private String firstName;
+
     private String lastName;
     private String email;
     private AppUser appUser;
@@ -37,6 +38,10 @@ public class Person {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public void setFirstName(String firstName) {
@@ -74,7 +79,7 @@ public class Person {
     }
 
     public void setAppUser(AppUser appUser) {
-        if(appUser == null) throw new IllegalArgumentException("appUser cannot be null");
+        if (appUser == null) throw new IllegalArgumentException("appUser cannot be null");
         this.appUser = appUser;
     }
 

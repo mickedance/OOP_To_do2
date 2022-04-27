@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Models;
 
 
 import java.time.LocalDate;
@@ -6,7 +6,12 @@ import java.util.Objects;
 
 public class ToDoItem {
     private static int idCount;
-    private int id;
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
     private String title;
     private String description;
     private LocalDate deadline;

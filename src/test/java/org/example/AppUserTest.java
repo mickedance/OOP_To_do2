@@ -1,6 +1,6 @@
 package org.example;
 
-import junit.framework.TestCase;
+import org.example.Models.AppUser;
 import org.junit.Assert;
 import org.junit.Test;
 
