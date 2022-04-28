@@ -1,5 +1,6 @@
-package org.example;
+package org.example.Models;
 
+import org.example.AppRole;
 import org.example.Models.AppUser;
 import org.junit.Assert;
 import org.junit.Test;

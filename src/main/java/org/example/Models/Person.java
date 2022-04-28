@@ -1,9 +1,11 @@
 package org.example.Models;
 
+import org.example.Sequencers.PersonIdSequencer;
+
 import java.util.Objects;
 
 public class Person {
-    private static int idCount;
+    //private static int idCount;
     private Integer id;
     private String firstName;
 
@@ -23,8 +25,7 @@ public class Person {
         setFirstName(firstName);
         setLastName(lastName);
         setEmail(email);
-
-        this.id = idCount++;
+        setId();
     }
 
     @Override
@@ -40,6 +41,9 @@ public class Person {
         return firstName;
     }
 
+    private void setId(){
+        this.id = PersonIdSequencer.nextId();
+    }
     public Integer getId() {
         return id;
     }

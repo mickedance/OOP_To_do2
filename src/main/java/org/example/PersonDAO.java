@@ -4,4 +4,6 @@ import org.example.Models.Person;
 
 public interface PersonDAO extends CrudInterface<Person, Integer>{
     Person findByEmail(String email);
+    Person findById(Integer id);
+
 }

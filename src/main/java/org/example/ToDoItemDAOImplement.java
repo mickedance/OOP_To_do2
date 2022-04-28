@@ -8,11 +8,22 @@ import java.util.List;
 
 public class ToDoItemDAOImplement implements ToDoItemDAO {
 
-    List<ToDoItem> toDoItemList = new ArrayList<>();
+    List<ToDoItem> toDoItemList;
 
+    public ToDoItemDAOImplement(){
+        toDoItemList = new ArrayList<>();
+    }
+    public void reset(){
+        toDoItemList.clear();
+    }
     @Override
     public ToDoItem persist(ToDoItem toDoItem) {
         if (toDoItem == null) throw new IllegalArgumentException("item to add was null");
+        //Prevent duplicates
+        for(ToDoItem item: toDoItemList){
+            if(item.equals(toDoItem))
+                throw new IllegalArgumentException("User already has that item in todolist, dupliactes not allowed");
+        }
         if (toDoItemList == null) toDoItemList = new ArrayList<>();
 
         if (toDoItemList.add(toDoItem)) return toDoItem;

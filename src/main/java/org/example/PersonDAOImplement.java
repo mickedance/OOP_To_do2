@@ -6,12 +6,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonDAOImplement implements PersonDAO {
-    List<Person> personList = new ArrayList<>();
+    private List<Person> personList;
+
+     PersonDAOImplement() {
+        personList = new ArrayList<>();
+    }
 
     @Override
     public Person persist(Person person) {
         if (person == null) throw new IllegalArgumentException("person to add was null");
         if (personList == null) personList = new ArrayList<>();
+        if(findByEmail(person.getEmail())!=null) throw new IllegalArgumentException("user with email: "+ person.getEmail()+ " already Exists");
         if (personList.add(person)) {
             return person;
         }
@@ -21,8 +26,8 @@ public class PersonDAOImplement implements PersonDAO {
     @Override
     public Person findById(Integer id) {
         if (id == null) throw new IllegalArgumentException("id was null");
-        for(Person p: personList){
-            if(id.intValue() == p.getId().intValue())
+        for (Person p : personList) {
+            if (id.intValue() == p.getId().intValue())
                 return p;
         }
         return null;
@@ -35,19 +40,19 @@ public class PersonDAOImplement implements PersonDAO {
 
     @Override
     public boolean remove(Integer id) {
-        if(id==null) throw new IllegalArgumentException("Id was null");
-        for(Person p: personList){
-            if(p.getId().equals(id))
-               return personList.remove(p);
+        if (id == null) throw new IllegalArgumentException("Id was null");
+        for (Person p : personList) {
+            if (p.getId().equals(id))
+                return personList.remove(p);
         }
-        return  false;
+        return false;
     }
 
     @Override
     public Person findByEmail(String email) {
-        if(email==null) throw new IllegalArgumentException("email was null");
-        for(Person p: personList){
-            if(p.getEmail().equalsIgnoreCase(email))
+        if (email == null) throw new IllegalArgumentException("email was null");
+        for (Person p : personList) {
+            if (p.getEmail().equalsIgnoreCase(email))
                 return p;
         }
         return null;

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Models;
 
 
 import org.example.Models.Person;

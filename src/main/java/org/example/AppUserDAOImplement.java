@@ -7,21 +7,27 @@ import java.util.List;
 
 public class AppUserDAOImplement implements AppUserDAO {
 
-    public List<AppUser> listOfUsers = new ArrayList<>();
+    public List<AppUser> listOfUsers;
+
+    public AppUserDAOImplement() {
+        listOfUsers = new ArrayList<>();
+
+    }
 
     @Override
     public AppUser persist(AppUser user) {
-        if (user == null) throw new IllegalArgumentException("object to add was null");
+        if (user == null) throw new IllegalArgumentException("user to add was null");
         if (listOfUsers == null) listOfUsers = new ArrayList<>();
         if (findByUserName(user.getUsername()) != null)
             throw new IllegalArgumentException("Username: " + user.getUsername() + " already exists");
 
-        listOfUsers.add(user);
-        return user;
+        if (listOfUsers.add(user))
+            return user;
+
+        return null;
     }
 
-    @Override
-    public AppUser findById(String userId) {
+    private AppUser findById(String userId) {
         if (userId == null) throw new IllegalArgumentException("userId was null");
 
         for (AppUser user : listOfUsers) {

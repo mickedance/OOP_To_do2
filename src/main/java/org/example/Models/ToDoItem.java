@@ -1,6 +1,9 @@
 package org.example.Models;
 
 
+import org.example.Sequencers.ToDoItemIdSequencer;
+import org.example.Sequencers.ToDoItemTaskIdSequencer;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -8,9 +11,6 @@ public class ToDoItem {
     private static int idCount;
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
 
     private String title;
     private String description;
@@ -23,16 +23,15 @@ public class ToDoItem {
      *
      * @param title
      * @param description
-     * @param person
+     * @param creator
      * @param deadline
      */
     public ToDoItem(String title, String description, Person creator, LocalDate deadline) {
-        id = idCount++;
         setTitle(title);
         setCreator(creator);
         setDescription(description);
         setDeadline(deadline);
-        id = idCount++;
+        setId();
     }
 
     /**
@@ -68,6 +67,15 @@ public class ToDoItem {
             throw new IllegalArgumentException("title cannot be null");
         }
         this.title = title;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+
+    private void setId() {
+        this.id = ToDoItemTaskIdSequencer.nextId();
     }
 
     public String getDescription() {

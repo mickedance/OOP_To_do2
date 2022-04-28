@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Models.Person;
 import org.example.Models.ToDoItem;
 import org.omg.CORBA.INTERNAL;
 
@@ -15,6 +16,8 @@ public interface ToDoItemDAO extends CrudInterface<ToDoItem, Integer> {
     List<ToDoItem> findByPersonId(Integer id);
     List<ToDoItem> findByDeadlineBefore(LocalDate date);
     List<ToDoItem> findByDeadlineAfter(LocalDate date);
+    ToDoItem  findById(Integer id);
+
 
 
 }

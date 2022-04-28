@@ -3,6 +3,7 @@ package org.example.Models;
 import org.example.AppRole;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class AppUser {
     private String id;
@@ -14,10 +15,14 @@ public class AppUser {
         setUsername(username);
         setPassword(password);
         setRole(role);
+        setId();
     }
 
     public String getId() {
         return id;
+    }
+    private void setId(){
+        this.id = UUID.randomUUID().toString();
     }
 
 

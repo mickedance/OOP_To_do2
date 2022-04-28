@@ -2,7 +2,7 @@ package org.example.Sequencers;
 
 public class PersonIdSequencer {
 
-    private static int currentId;
+    private static int currentId = 0;
 
     public static int nextId() {
         return ++currentId;
@@ -13,7 +13,7 @@ public class PersonIdSequencer {
     }
 
     public static void setCurrentId(Integer newId) {
-        if(newId instanceof  Integer==false) throw new IllegalArgumentException("newId was null");
+        if (newId instanceof Integer == false) throw new IllegalArgumentException("newId was null");
         currentId = newId;
     }
 }

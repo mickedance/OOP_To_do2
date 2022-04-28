@@ -1,11 +1,13 @@
 package org.example.Models;
 
+import org.example.Sequencers.ToDoItemTaskIdSequencer;
+
 import java.util.Arrays;
 import java.util.Objects;
 
 public class ToDoItemTask {
-    public static int idCount;
-    private int id;
+
+    private Integer id;
     private boolean assigned;
     private ToDoItem[] todoItem;
     private Person assignee;
@@ -19,7 +21,7 @@ public class ToDoItemTask {
     public ToDoItemTask(ToDoItem[] item, Person assignee) {
         setAssignee(assignee);
         setTodoItem(item);
-        this.id = idCount++;
+        setId();
         todoItem = new ToDoItem[0];
     }
 
@@ -42,8 +44,11 @@ public class ToDoItemTask {
         return assignee;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
+    }
+    private void setId() {
+        this.id = ToDoItemTaskIdSequencer.nextId();
     }
 
     /**
