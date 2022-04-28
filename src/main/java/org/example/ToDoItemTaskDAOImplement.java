@@ -12,7 +12,9 @@ public class ToDoItemTaskDAOImplement implements ToDoItemTaskDAO {
     public ToDoItemTaskDAOImplement(){
         taskList = new ArrayList<>();
     }
-
+    public void reset(){
+        taskList.clear();
+    }
     @Override
     public ToDoItemTask persist(ToDoItemTask toDoItemTask) {
         if (toDoItemTask == null) throw new IllegalArgumentException("TodoItemTask was null");
@@ -61,7 +63,7 @@ public class ToDoItemTaskDAOImplement implements ToDoItemTaskDAO {
         if (id == null) throw new IllegalArgumentException("id was null");
         List<ToDoItemTask> listToReturn = new ArrayList<>();
         for (ToDoItemTask task : taskList) {
-            if (task.getId().intValue() == id.intValue())
+            if (task.getAssignee().getId().intValue() == id.intValue())
                 listToReturn.add(task);
         }
         return listToReturn;
