@@ -60,7 +60,7 @@ public class ToDoItemDAOImplement implements ToDoItemDAO {
     public List<ToDoItem> findAllByDoneStatus() {
         List<ToDoItem> listToReturn = new ArrayList<>();
         for(ToDoItem item: toDoItemList){
-            if(item.isDone()== true)
+            if(item.isDone())
                 listToReturn.add(item);
         }
         return listToReturn;

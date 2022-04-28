@@ -22,7 +22,7 @@ public class ToDoItemTask {
         setAssignee(assignee);
         setTodoItem(item);
         setId();
-        todoItem = new ToDoItem[0];
+        setTodoItem(item);
     }
 
     public boolean isAssigned() {
@@ -60,7 +60,6 @@ public class ToDoItemTask {
     public void setAssignee(Person assignee) {
         if (assignee == null) {
             this.assigned = false;
-            throw new IllegalArgumentException("Assignee cannot be null");
         } else {
             this.assigned = true;
             this.assignee = assignee;

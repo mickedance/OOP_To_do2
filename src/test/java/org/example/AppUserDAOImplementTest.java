@@ -56,25 +56,29 @@ public class AppUserDAOImplementTest {
     public void shouldReturnListOfAppUsers() {
         Assert.assertNotNull(appUserDAO.findAll());
     }
+
     @Test(expected = IllegalArgumentException.class)
-    public void shouldReturnException_removeWithNullValue(){
+    public void shouldReturnException_removeWithNullValue() {
         Assert.assertTrue(appUserDAO.remove(null));
     }
+
     @Test
-    public void shouldReturnTrue_removeWithValue(){
+    public void shouldReturnTrue_removeWithValue() {
         AppUser userTmp = new AppUser("username---2", "passt---2", AppRole.APP_ROLE_USER);
         appUserDAO.persist(userTmp);
         Assert.assertTrue(appUserDAO.remove(userTmp.getId()));
     }
+
     @Test
-    public void shouldReturnNull_removeWithValue(){
+    public void shouldReturnNull_removeWithValue() {
         AppUser userTmp = new AppUser("username---2", "passt---2", AppRole.APP_ROLE_USER);
         appUserDAO.persist(userTmp);
         appUserDAO.remove(userTmp.getId());
         Assert.assertNull(appUserDAO.findByUserName(userTmp.getUsername()));
     }
+
     @Test(expected = IllegalArgumentException.class)
-    public void shouldReturnException_removeWithNonExistingValu(){
+    public void shouldReturnException_removeWithNonExistingValue() {
         appUserDAO.remove("--");
     }
 }
