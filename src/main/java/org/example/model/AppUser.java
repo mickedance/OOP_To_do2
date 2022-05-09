@@ -1,9 +1,11 @@
 package org.example.model;
 
+import org.example.util.Validation;
+
 import java.util.Objects;
 import java.util.UUID;
 
-public class AppUser {
+public class AppUser implements Validation {
     private String id;
     private String username;
     private String password;
@@ -29,15 +31,13 @@ public class AppUser {
     }
 
     public void setUsername(String username) {
-        if (username == null || username.equals(""))
-            throw new IllegalArgumentException("username cannot be empty or null");
+        Validation.stringIsNotNullAndNotEmpty.accept(username, "userName");
         this.username = username;
     }
 
 
     public void setPassword(String password) {
-        if (password == null || password.equals(""))
-            throw new IllegalArgumentException("password cannot be empty or null");
+        Validation.stringIsNotNullAndNotEmpty.accept(password, "password");
         this.password = password;
     }
 
@@ -50,7 +50,7 @@ public class AppUser {
     }
 
     public void setRole(AppRole role) {
-        if (role == null) throw new IllegalArgumentException("Role cannot be null");
+        Validation.AppRoleIsNotEmpty.accept(role, "AppRole");
         this.role = role;
     }
 

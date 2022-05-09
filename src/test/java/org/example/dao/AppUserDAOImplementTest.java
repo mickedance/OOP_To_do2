@@ -2,7 +2,7 @@ package org.example.dao;
 
 import org.example.model.AppRole;
 import org.example.model.AppUser;
-import org.example.dao.AppUserDAOImplement;
+import org.example.dao.Implement.AppUserDAOImplement;
 import org.junit.Assert;
 import org.junit.Test;
 

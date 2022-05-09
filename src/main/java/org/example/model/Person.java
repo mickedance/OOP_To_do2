@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.model.sequencer.PersonIdSequencer;
+import org.example.util.Validation;
 
 import java.util.Objects;
 
@@ -37,9 +38,7 @@ public class Person {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName == null) {
-            throw new IllegalArgumentException("FirstName cannot be null");
-        }
+        Validation.stringIsNotNullAndNotEmpty.accept(firstName, "firstName");
         this.firstName = firstName;
     }
 
@@ -48,9 +47,8 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
-        if (lastName == null) {
-            throw new IllegalArgumentException("Lastname cannot be null");
-        }
+        Validation.stringIsNotNullAndNotEmpty.accept(lastName, "lastName");
+
         this.lastName = lastName;
     }
 
@@ -59,9 +57,8 @@ public class Person {
     }
 
     public void setEmail(String email) {
-        if (email == null) {
-            throw new IllegalArgumentException("Email cannot be null");
-        }
+        Validation.stringIsNotNullAndNotEmpty.accept(email, "email");
+
         this.email = email;
     }
 
@@ -70,7 +67,7 @@ public class Person {
     }
 
     public void setAppUser(AppUser appUser) {
-        if (appUser == null) throw new IllegalArgumentException("appUser cannot be null");
+        Validation.appUSerIsNotNull.accept(appUser, "appUser");
         this.appUser = appUser;
     }
 

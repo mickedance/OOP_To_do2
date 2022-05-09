@@ -2,6 +2,7 @@ package org.example.model;
 
 
 import org.example.model.sequencer.ToDoItemTaskIdSequencer;
+import org.example.util.Validation;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -58,9 +59,7 @@ public class ToDoItem {
     }
 
     public void setTitle(String title) {
-        if (title == null) {
-            throw new IllegalArgumentException("title cannot be null");
-        }
+        Validation.stringIsNotNullAndNotEmpty.accept(title, "title");
         this.title = title;
     }
 
@@ -86,9 +85,7 @@ public class ToDoItem {
     }
 
     public void setDeadline(LocalDate deadline) {
-        if (deadline == null) {
-            throw new IllegalArgumentException("Deadline cannot be null");
-        }
+        Validation.localDateIsNotNull.accept(deadline, "deadline");
         this.deadline = deadline;
     }
 
@@ -106,9 +103,7 @@ public class ToDoItem {
     }
 
     public void setCreator(Person creator) {
-        if (creator == null) {
-            throw new IllegalArgumentException("creator cannot be null");
-        }
+        Validation.personIsNotNull.accept(creator, "creator");
         this.creator = creator;
     }
 

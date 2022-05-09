@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.model.sequencer.ToDoItemTaskIdSequencer;
+import org.example.util.Validation;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -54,9 +55,7 @@ public class ToDoItemTask {
     }
 
     public void setTodoItem(ToDoItem[] todoItem) {
-        if (todoItem == null) {
-            throw new IllegalArgumentException("TodoItem cannot be null");
-        }
+        Validation.manytoDoItemIsNotNull.accept(todoItem, "todoItem ");
         this.todoItem = todoItem;
     }
 

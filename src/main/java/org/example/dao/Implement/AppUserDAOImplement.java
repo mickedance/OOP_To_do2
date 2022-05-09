@@ -1,6 +1,8 @@
-package org.example.dao;
+package org.example.dao.Implement;
 
+import org.example.dao.AppUserDAO;
 import org.example.model.AppUser;
+import org.example.util.Validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class AppUserDAOImplement implements AppUserDAO {
 
     @Override
     public AppUser persist(AppUser user) {
+
         if (user == null) throw new IllegalArgumentException("user to add was null");
         if (listOfUsers == null) listOfUsers = new ArrayList<>();
         if (findByUserName(user.getUsername()) != null)
